@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details</title>
+    <link rel="stylesheet" href="section1.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+</head>
+<body>
+    <header class="container-fluid text-white py-3">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand animate__animated animate__flash" href="#">PROJECT DETAILS</a>
+        </nav>
+    </header>
+
+    <main class="container mt-5">
+        <div class="row" id="project-detail">
+            
+        </div>
+    </main>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const project = urlParams.get('project');
+
+        const projects = {
+            movie_ticket_booking: {
+                title: "Movie Ticket Booking",
+                description: "A full-stack web application for booking movie tickets.",
+                technologies: "HTML, CSS, JavaScript, Node.js, Express, MongoDB",
+                features: "Developed a dynamic movie ticket booking website withAdd-to-cart functionality, Real time movie listings, User-authentication",
+                image: "movie ticket.jpg",
+                live:"https://www.ticket-booking-app-eta.vercel.app/"
+            },
+            farm_to_marketplace: {
+                title: "Farm-To-Marketplace",
+                description: "A full-stack web application connecting farmers to consumers.",
+                technologies: "React, Node.js, Express, Bootstrap, Javascript, MongoDB",
+                features: "Independently enhanced a full stack e-commerece platform. Designed and implemented RESTful APIs for seamless backend-frontend communication. Engineered a scalable MongoDB database for efficient data storage. Build user friendly and responsive React frontend. Implemented robust authentication, authorization and state management.  ",
+                image: "farm.jpg",
+                live:'https://www.farm-to-marketplace.vercel.app/'
+            },
+            ride_on_website: {
+                title: "Ride-On-Website",
+                description: "A front-end web application for ride-sharing services.",
+                technologies: "HTML, CSS, JavaScript",
+                features: "By leveraging the power of React, HTML, CSS and Bootstrap, we will create a visually appealing and user-friendly tech blog that delivers value to our audience",
+                image: "ride-on.jpg",
+                live:'https://www.ride-on.vercel.app/'
+            },
+            dashboard: {
+                title: "Dashboard",
+                description: "A front-end web application for data visualization.",
+                technologies: "React, Chart.js",
+                features: "Interactive charts, user-friendly interface.",
+                image: "dashboard.jpg"
+            },
+            health_first_blog: {
+                title: "Health-First Blog Website",
+                description: "A front-end web application for health-related articles.",
+                technologies: "HTML, CSS, JavaScript",
+                features: "Expanded a responsive health an wellness blog website using HTML, CSS, and Bootstrap. Prioritized user experience by ensuring optimal display across various devices.",
+                image: "healthfirst.jpg",
+                live:'https://www.health-first-ten.vercel.app/'
+            },
+            business_landing_page: {
+                title: "Business-Landing-Page",
+                description: "A front-end web application for business promotion.",
+                technologies: "HTML, CSS, JavaScript",
+                features: "Smooth animation and hover effects for modern users . AOS, Contact form, service descriptions.",
+                image: "biobiz.png",
+                live:'https://biobiz.vercel.app/'
+            }
+        };
+
+        const projectDetail = projects[project];
+
+        if (projectDetail) {
+            document.getElementById('project-detail').innerHTML = `
+                <div class="col-md-6 animate__animated animate__backInUp">
+                    <img src="${projectDetail.image}" alt="Project Image" class="img-fluid rounded">
+                </div>
+                <div class="col-md-6">
+                    <h2 class='text-white animate__animated animate__rubberBand'>${projectDetail.title}</h2>
+                    <p class='text-white py-3'>Description: ${projectDetail.description}</p>
+                    <p class='text-white py-3'>Technologies Used: ${projectDetail.technologies}</p>
+                    <p class='text-white py-3'>Features: ${projectDetail.features}</p>
+                    <a href="${projectDetail.live}" class="btn btn-primary">Live Demo</a>
+                </div>
+            `;
+        } else {
+            document.getElementById('project-detail').innerHTML = '<p>Project not found.</p>';
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
